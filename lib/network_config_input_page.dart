@@ -384,22 +384,7 @@ class _NetworkConfigInputPageState extends State<NetworkConfigInputPage> {
                       }
                       return '域名格式错误';
                     } else {
-                      final match = addressPortRegex.firstMatch(value);
-                      if (match != null) {
-                        final domainRegex =
-                            RegExp(r'^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-                        if (!domainRegex.hasMatch(match.group(1)!)) {
-                          return '地址格式错误';
-                        }
-                        final port = int.tryParse(match.group(2)!);
-                        if (port != null && port >= 1 && port <= 65535) {
-                          return null;
-                        } else {
-                          return '端口错误';
-                        }
-                      } else {
-                        return '地址格式错误';
-                      }
+
                     }
                   },
                 ),
